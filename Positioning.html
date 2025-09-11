@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Positioning</title>
+    <link rel="stylesheet" href="lib/nomanize.css" >
+    <style>
+
+        div{
+            height: 50%;
+            width: 50%;
+            position: absolute;
+        }
+        #div1{
+            background: darkred;
+            border: 5px solid white;
+
+        }
+        #div2{
+            background: goldenrod;
+                     right: 0;
+            border: 5px solid white;
+
+        }
+        #div3{
+            background: darkblue;
+                    bottom: 0;
+            border: 5px solid white;
+
+        }
+        #div4{
+            background: deeppink;
+                    bottom: 0;
+                    right: 0;
+            border: 5px solid white;
+
+        }
+        #div1>#div5{
+            background: lightcoral;
+            height: 150px;
+            width: 150px;
+            border: 5px solid white;
+            border-radius:100%;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+        }#div2>#div6{
+            background: lightcoral;
+            height: 150px;
+            width: 150px;
+            border: 5px solid white;
+            border-radius:100%;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+        }#div3>#div7{
+            background: lightcoral;
+            height: 150px;
+            width: 150px;
+            border: 5px solid white;
+            border-radius:100%;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+        }#div4>#div8{
+            background: lightcoral;
+            height: 150px;
+            width: 150px;
+            border: 5px solid white;
+            border-radius:100%;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+        }#div1>#div5>#div9{
+            background: red;
+            height: 100px;
+            width: 100px;
+                                                border: 5px solid white ;
+
+                                                right: 0;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+        }#div2>#div6>#div10{
+            background: red;
+            height: 100px;
+            width: 100px;
+                                                         border: 5px solid white ;
+
+                                                         right: 0;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+        }#div3>#div7>#div11{
+            background: red;
+            height: 100px;
+            width: 100px;
+                                                                  border: 5px solid white ;
+
+                                                                  right: 0;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+        }#div4>#div8>#div12{
+            background: red;
+            height: 100px;
+            width: 100px;
+                                                                           border: 5px solid white ;
+
+                                                                           right: 0;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+        }
+         #mid1{
+             background: lightcoral;
+             height: 150px;
+             width: 150px;
+             border: 5px solid white ;
+
+             right: 0;
+             top: 0;
+             bottom: 0;
+             left: 0;
+             margin: auto;
+         } #mid1>#mid2{
+             background: red;
+             height: 100px;
+             width: 100px;
+            border-radius: 100%;
+            border: 5px solid white ;
+             right: 0;
+             top: 0;
+             bottom: 0;
+             left: 0;
+             margin: auto;
+         }
+           #con1{
+               background: lightcoral;
+               height: 170px;
+               width: 170px;
+               border: 5px solid white ;
+               border-bottom-right-radius: 100%;
+               position: relative;
+
+
+           } #con2{
+               background: lightcoral;
+               height: 170px;
+               width: 170px;
+               border: 5px solid white ;
+               bottom: 0;
+               border-top-right-radius: 100%;
+
+           } #con3{
+               background: lightcoral;
+               height: 170px;
+               width: 170px;
+               border: 5px solid white ;
+            border-bottom-left-radius: 100%;
+            right: 0;
+            top: 0;
+
+           } #con4{
+               background: lightcoral;
+               height: 170px;
+               width: 170px;
+               border: 5px solid white ;
+                border-top-left-radius: 100%;
+            right: 0;
+            bottom: 0;
+
+           }#con5{
+               background: lightcoral;
+               height: 170px;
+               width: 170px;
+                border: 5px solid white ;
+            border-top-left-radius: 100%;
+            border-top-right-radius: 100%;
+
+                bottom: -70px;
+            right: 0;
+            left: 0;
+            margin: auto;
+
+           }#con6{
+               background: lightcoral;
+               height: 170px;
+               width: 170px;
+               border: 5px solid white ;
+                border-bottom-right-radius: 100%;
+                border-bottom-left-radius: 100%;
+                top: -90px;
+                right: 0;
+                left: 0;
+                 margin: auto;
+
+           }
+    </style>
+</head>
+<body>
+<section>
+<div id="div1"><div id="div5"><div id="div9"></div></div></div>
+<div id="div2"><div id="div6"><div id="div10"></div></div></div>
+<div id="div3"><div id="div7"><div id="div11"></div></div></div>
+<div id="div4"><div id="div8"><div id="div12"></div></div></div>
+    <div id="mid1"><div id="mid2"></div></div>
+    <div id="con1"></div>
+    <div id="con2"></div>
+    <div id="con3"></div>
+    <div id="con4"></div>
+    <div id="con5"></div>
+    <div id="con6"></div>
+</section>
+<section id="sec2">
+
+</section>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form</title>
+</head>
+<body>
+
+  <form>
+    <label for="Email">Email:</label>
+   <input type="email" id="Email">
+    <br>
+    <br>
+    <label for="Password">Password:</label>
+    <input type="password" id="Password">
+    <br>
+    <br>
+    <input type="submit">
+    <input type="reset">
+      <button>Click me</button>
+</form>
+<form>
+    <h1 id="headline">Student Registration</h1>
+    <div>
+        <label for ="fname">First Name</label>
+        <br>
+        <input type="text" id="fname" name="First Name">
+    </div>
+    <br>
+    <div>
+        <label for ="lname">Last Name</label>
+        <br>
+        <input type="text" id="lname" name="Last Name">
+    </div>
+    <br>
+    <div>
+        <label for ="address"> Address </label>
+    <br>
+    <textarea id="address" rows="10" cols="50"></textarea>
+
+    </div>
+
+</form>
+  <br>
+<form>
+    <div>
+        <label for ="items"> Items </label>
+        <br>
+    <select id="items" name="items">
+        <optgroup label="Back end">
+        <option>Java</option>
+        <option>c++</option>
+        <option>c#</option>
+        </optgroup>
+        <optgroup label="Front end">
+        <option>css</option>
+        <option>angular</option>
+        </optgroup>
+    </select>
+    </div>
+
+    <h4>Select Gender</h4>
+    <input type="radio" id="male" name="gender"><label> Male</label>
+    <br>
+    <input type="radio" id="female" name="gender"><label> Female</label>
+    <br>
+    <br>
+    <label for="my carrier">Choose a Carrier from this list:</label>
+    <input list="carrier" id="my carrier" name="my Carrier" />
+    <datalist id="carrier">
+        <option value="java"></option>
+        <option value="phyton"></option>
+        <option value="js"></option>
+        <option value="css"></option>
+        <option value=" front end"></option>
+    </datalist>
+    <h4>Payment</h4>
+    <input type="radio" id="full" name="pay"><label>Full Payment</label>
+    <br>
+    <input type="radio" id="month" name="pay"><label>Monthly Payment</label>
+<br><br>
+
+    <div>
+    <button type="submit">Submit</button>
+    <button type="reset">Reset</button>
+    <button type="button">Update</button>
+    <button type="button">Delete</button>
+    </div>
+</form>
+</body>
+</html>

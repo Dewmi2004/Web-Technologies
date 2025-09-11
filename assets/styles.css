@@ -1,0 +1,26 @@
+h1{
+    color: black;
+    background-color: beige;
+}h2{
+    color: black;
+    background-color: lavender;
+}h3{
+    color: black;
+    background-color: lavenderblush;
+}h4{
+    color: black;
+    background-color: cornflowerblue;
+}h5{
+    color: black;
+    background-color: cadetblue;
+}h6{
+    color: black;
+    background-color: silver;
+}
+p{
+    color: red;
+}
+div{
+    color: blueviolet;
+    background-color: aliceblue;
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>flex</title>
+  <style>
+    section{
+      width: 770px;
+      height: 300px;
+      border: 3px solid red;
+      display: flex;
+      justify-content: space-evenly;
+    }
+    section>div{
+      width: 100px;
+      height: 100px;
+      border: 3px solid wheat;
+      box-shadow: 10px 10px 10px 5px lightcoral;
+
+    }
+    section>div:first-child{
+      align-self: start;
+      background-color: red;
+    } section>div:nth-child(2){
+      align-self: center;
+      background-color: brown;
+    }  section>div:nth-child(3){
+      align-self: end;
+      background-color: darkred;
+    }  section>div:nth-child(4){
+      align-self: center;
+      background-color: hotpink;
+    }section>div:nth-child(5){
+      align-self: start;
+      background-color: deeppink;
+    }section>div:nth-child(6){
+      align-self: center;
+      background-color: pink;
+    }
+  </style>
+</head>
+<body>
+<section>
+  <div>A</div>
+  <div>B</div>
+  <div>C</div>
+  <div>D</div>
+  <div>E</div>
+  <div>F</div>
+</section>
+</body>
+</html>
