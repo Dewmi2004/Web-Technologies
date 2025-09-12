@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Animation</title>
+  <style>
+    div{
+      width: 500px;
+      height: 500px;
+      background: goldenrod;
+      animation-name: myanimation;
+      animation-duration: 10000ms;
+      border: 5px dashed red;
+    }
+    @keyframes myanimation {
+      from{
+        background: lightcoral;
+      }
+      to{
+        background: darkred;
+        border-radius: 100%;
+        border: 5px solid red;
+
+      }
+
+    }
+  </style>
+</head>
+<body>
+<div></div>
+</body>
+</html>

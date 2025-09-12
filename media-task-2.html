@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>media-task-2</title>
+    <style>
+        div{
+            background: lightcoral;
+            width: 300px;
+            height: 300px;
+            border: 25px dotted darkred;
+            border-radius: 100%;
+
+        }
+        @media all and (max-width: 800px) {
+            div {
+                transform: rotate(180deg);
+            }
+        }
+            @media all and (max-width: 700px) {
+                div {
+                    transform: rotate(360deg);
+                }
+            }
+                @media all and (max-width: 600px) {
+                    div {
+                        transform: rotate(540deg);
+                    }
+                }
+                    @media all and (max-width: 500px) {
+            div{
+               transform: rotate(720deg);
+            }
+        }
+    </style>
+</head>
+<body>
+<div></div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Advance-Animations</title>
+    <style>
+        div{
+            width: 500px;
+            height: 500px;
+            background: palevioletred;
+            animation-name: aacss;
+            animation-duration: 3000ms;
+            animation-iteration-count: infinite;
+
+        }
+        @keyframes aacss {
+            0%{
+                background: lightcoral;
+            }
+            25%{
+                background: mediumorchid;
+                clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%);            }
+            50%{
+                background: lightsteelblue;
+                clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);            }
+            75%{
+                background: deeppink;
+                clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);            }
+
+            100%{
+                background: lightseagreen;
+                border-radius: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+<div></div>
+</body>
+</html>
