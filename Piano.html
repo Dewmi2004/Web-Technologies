@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Piano</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        .piano {
+            position: relative;
+            width: 420px;
+            height: 240px;
+            background-color: #ddd;
+            border: 2px solid #333;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .key {
+            position: absolute;
+            cursor: pointer;
+            transition: box-shadow 0.1s ease, transform 0.1s ease;
+            border: 1px solid #333;
+        }
+
+        .white {
+            width: 60px;
+            height: 240px;
+            background-color: white;
+            bottom: 0;
+            box-shadow: 2px 0 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .white:active {
+            box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.3), 2px 0 2px rgba(0, 0, 0, 0.1);
+            transform: translateY(2px);
+        }
+
+        .black {
+            width: 40px;
+            height: 140px;
+            background-color: #333;
+            z-index: 2;
+            box-shadow: -2px 0 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .black:active {
+            box-shadow: inset 0 3px 6px rgba(255, 255, 255, 0.4), -2px 0 2px rgba(0, 0, 0, 0.2);
+            transform: translateY(2px);
+        }
+
+
+        .c { left: 0px; }
+        .d { left: 60px; }
+        .e { left: 120px; }
+        .f { left: 180px; }
+        .g { left: 240px; }
+        .a { left: 300px; }
+        .b { left: 360px; }
+
+
+        .cs { left: 30px; top: 0; }
+        .ds { left: 90px; top: 0; }
+        .fs { left: 210px; top: 0; }
+        .gs { left: 270px; top: 0; }
+        .as { left: 330px; top: 0; }
+
+
+        .key::after {
+            content: attr(data-note);
+            position: absolute;
+            bottom: 5px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 10px;
+            color: #666;
+        }
+
+        .black::after {
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+<div class="piano">
+
+    <div class="key white c" data-note="C"></div>
+    <div class="key white d" data-note="D"></div>
+    <div class="key white e" data-note="E"></div>
+    <div class="key white f" data-note="F"></div>
+    <div class="key white g" data-note="G"></div>
+    <div class="key white a" data-note="A"></div>
+    <div class="key white b" data-note="B"></div>
+
+
+    <div class="key black cs" data-note="C#"></div>
+    <div class="key black ds" data-note="D#"></div>
+    <div class="key black fs" data-note="F#"></div>
+    <div class="key black gs" data-note="G#"></div>
+    <div class="key black as" data-note="A#"></div>
+</div>
+</body>
+</html>
