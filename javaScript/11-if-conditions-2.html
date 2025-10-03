@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>if condition</title>
+</head>
+<body>
+<script>
+    //==========================task-1====================================
+
+    var x =10;
+
+    if(x%2===0){
+       console.log("Even Number");
+    }else{
+        console.log("Odd Number");
+    }
+
+    //==========================task-2====================================
+
+    var y=30;
+
+if(y>0){
+    console.log("Positive Number");
+}else if(y<0){
+    console.log("Negative Number");
+}else{
+    console.log("Zero");
+}
+
+    //==========================task-3====================================
+
+var z=60;
+
+if(z>=75){
+    console.log("A");
+}else if(z>=65){
+    console.log("B");
+}else if(z>=55){
+    console.log("C");
+}else if(z>=45){
+    console.log("S");
+}else{
+    console.log("F");
+}
+
+    //==========================task-4-Ternary====================================
+
+    var marks = (z>=75)? "A":(z>=65)?"B":(z>=55)?"C":(z>=45)?"S":"F";
+    console.log(marks);
+</script>
+</body>
+</html>
