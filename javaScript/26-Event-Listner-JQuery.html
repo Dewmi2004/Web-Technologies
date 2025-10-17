@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event-Listner JQuery</title>
+    <style>
+        #box1{
+            width: 200px;
+            aspect-ratio: 1/1;
+            background: lightskyblue;
+            border: 1px solid darkblue;
+        }
+    </style>
+</head>
+<body>
+<div id="box1"></div>
+<br>
+<button>Click!</button>
+<br>
+<label for="input1">Enter Your Name</label>
+<br>
+<input type="text" id="input1">
+<br>
+<h1 id="my-h1"></h1>
+<script src="../lib/jQuery.js"></script>
+<script>
+    //--------------------------button click-----------------------//
+
+    // $('button').eq(0).on('click',function (){
+   //     console.log("clicked....")
+   // })
+
+
+    //--------------------------button double Click-----------------------//
+
+   // $('button').eq(0).on('dblclick',function (){
+   //     console.log("Double clicked....")
+   // })
+
+
+
+   //  //--------------------------mouse enter-----------------------//
+   //
+   //  $('#box1').on('mouseenter',function (){
+   //      console.log("Mouse Enter!");
+   //  })
+   //
+   // //--------------------------mouse exit-----------------------//
+   //
+   // $('#box1').on('mouseleave',function (){
+   //      console.log("Mouse Exist!");
+   //  })
+   //
+   //  //--------------------------mouse over-----------------------//
+   //
+   //
+   //  $('#box1').on('mouseover',function (){
+   //       console.log("Mouse Over!");
+   //   })
+   //
+   //  //--------------------------mouse down-----------------------//
+   //
+   //
+   //  $('#box1').on('mousedown',function (){
+   //       console.log("Mouse down!");
+   //   })
+   //
+   //  //--------------------------mouse down-----------------------//
+   //
+   //
+   //  $('#box1').on('mouseup',function (){
+   //       console.log("Mouse up!");
+   //   })
+
+
+
+    ////--------------------------focus -----------------------//
+    //
+    // $('#input1').on('focus',function (){
+    //      console.log("Focused!");
+    //  })
+    //
+    // //--------------------------blur -----------------------//
+    //
+    // $('#input1').on('blur',function (){
+    //      console.log("Blured!");
+    //  })
+
+
+
+    // //--------------------------key Down -----------------------//
+    //
+    // $('#input1').on('keydown',function (){
+    //      console.log("Key Down!");
+    //  })
+    //
+    // //--------------------------key press -----------------------//
+    //
+    // $('#input1').on('keypress',function (){
+    //     console.log("key Pressed!");
+    //  })
+    //
+    // //--------------------------key up -----------------------//
+    //
+    // $('#input1').on('keyup',function (){
+    //      console.log("Key up!");
+    //  })
+
+
+
+    // $('#input1').on('keypress',function (){
+    //     var x = $('#input1').val();
+    //     $('#my-h1').text(x);
+    // })
+
+    // $('#input1').on('keyup',function (){
+    //     var x = $('#input1').val();
+    //     $('#my-h1').text(x);
+    // })
+
+
+
+    // //-------------------------- when press enter with key code  -----------------------//
+
+    $('#input1').on('keyup',function (e){
+        if(e.which===13){
+            var x = $('#input1').val();
+             $('#my-h1').text(x);
+        }
+    })
+</script>
+</body>
+</html>

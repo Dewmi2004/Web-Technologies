@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event Listner</title>
+    <style>
+        #bulb{
+            width: 100px;
+            aspect-ratio: 1/1;
+            border: 2px solid darkblue;
+            background: lightskyblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+<h1 id="my_h1"></h1>
+<input id="my_input">
+<script>
+
+    // document.getElementsByTagName('button')[0].addEventListener('click',function (){
+    //     if(document.getElementsByTagName('button')[0].innerText==="ON"){
+    //     document.getElementsByTagName('button')[0].innerText="OFF";
+    //     document.getElementsByTagName('div')[0].style.background="yellow";
+    //     }
+    //     else{
+    //         document.getElementsByTagName('button')[0].innerText="ON";
+    //         document.getElementsByTagName('div')[0].style.background="none";
+    //     }
+    // })
+
+
+
+//     var interval;
+// document.getElementsByTagName('button')[0].addEventListener('click',function (){
+//     if(document.getElementsByTagName('button')[0].innerText === "START"){
+//      interval = setInterval(()=>{
+//         document.getElementsByTagName('button')[0].innerText="STOP";
+//
+//         var txt =  document.getElementsByTagName('h1')[0].innerText;
+//             txt = +txt + 1;
+//             document.getElementsByTagName('h1')[0].innerText=txt;
+//     },100);
+//         }else {
+//             clearInterval(interval);
+//             document.getElementsByTagName('button')[0].innerText="START";
+//         }
+//
+// })
+
+
+    const my_input = document.getElementById('my_input');
+    const my_h1 = document.getElementById('my_h1');
+    my_input.addEventListener('input',function (){
+        my_h1.innerText = my_input.value;
+    });
+
+</script>
+</body>
+</html>
