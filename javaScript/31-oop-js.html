@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    // =============================== Encapsulation======================================
+
+    // class Person{
+    //     #name
+    //     constructor(name) {
+    //       this.#name = name;
+    //     }
+    //     get name(){
+    //         return this.#name;
+    //     }
+    //     set name(name){
+    //         this.#name = name ;
+    //     }
+    // }
+    // var person = new Person("Imasha");
+    // console.log(person.name);
+    //
+    // person.name = "Ravindu";
+    //
+    // console.log(person.name);
+    //
+    // console.log(person.#name);// error => Private field '#name' must be declared in an enclosing class
+
+    // =============================== Inheritance======================================
+
+    // class Animal{
+    //     eat(){   //normal method
+    //       console.log("Animal is Eating...");
+    //     }
+    // }
+    //
+    // class Dog extends Animal{
+    //     bark(){
+    //         console.log("Dog is Barking....");
+    //     }
+    //
+    // }
+    // var dog = new Dog();
+    // // console.log(dog.bark());
+    // console.log(dog.eat());
+
+    // =============================== Polymorphism ======================================
+
+    // class Animal{
+    //     speak(){   //normal method
+    //       console.log("Animal is Speaking...");
+    //     }
+    // }
+    //
+    // class Dog extends Animal{
+    //     speak(){
+    //         console.log("Woof Woof...");
+    //     }
+    //
+    // }
+    // class Cat extends Animal{
+    //     speak(){
+    //         console.log("Meeow Meeow...");
+    //     }
+    //
+    // }
+    // const animals = [new Dog() , new Cat()];
+    // animals[0].speak();
+    // animals[1].speak();
+
+
+    // =============================== Abstraction ======================================
+
+    // class Vehical{
+    //     start(){
+    //         this.#checkEngine();
+    //         console.log("Start Vehical...");
+    //     }
+    //     #checkEngine(){
+    //         console.log("Check Engine...");
+    //     }
+    // }
+    //
+    // var v = new Vehical();
+    // // v.checkEngine();//error => v.checkEngine is not a function // because that method is private
+    // v.start();
+
+</script>
+</body>
+</html>

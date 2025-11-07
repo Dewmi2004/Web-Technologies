@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fashuse - E-Commerce System</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #0a0e0d;
+      color: #e0e0e0;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    .navbar {
+      background: linear-gradient(135deg, #1a2e2a 0%, #0d1613 100%);
+      padding: 1rem 3%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #4CAF50;
+      letter-spacing: 2px;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-menu a {
+      color: #b0b0b0;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-menu a:hover {
+      color: #4CAF50;
+    }
+
+    .nav-menu a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #4CAF50;
+      transition: width 0.3s ease;
+    }
+
+    .nav-menu a:hover::after {
+      width: 100%;
+    }
+
+    .nav-icons {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(76, 175, 80, 0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-icon:hover {
+      background: #4CAF50;
+      transform: translateY(-3px);
+    }
+
+    .cart-badge {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background: #ff5252;
+      color: white;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #2d4a3e 0%, #1a2e2a 100%);
+      padding: 4rem 3%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 600px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(76, 175, 80, 0.15) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero-content {
+      flex: 1;
+      z-index: 2;
+    }
+
+    .hero-badge {
+      background: rgba(76, 175, 80, 0.2);
+      color: #4CAF50;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      color: #fff;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #b0b0b0;
+      margin-bottom: 2rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .btn {
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: none;
+      font-size: 1rem;
+    }
+
+    .btn-primary {
+      background: #4CAF50;
+      color: white;
+      box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
+    }
+
+    .btn-primary:hover {
+      background: #45a049;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(76, 175, 80, 0.6);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #4CAF50;
+      border: 2px solid #4CAF50;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(76, 175, 80, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .hero-image {
+      flex: 1;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-image img {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Categories */
+    .categories {
+      padding: 4rem 3%;
+      background: #0d1613;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      color: #4CAF50;
+    }
+
+    .view-all {
+      color: #4CAF50;
+      text-decoration: none;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .category-card {
+      background: linear-gradient(135deg, #1a2e2a 0%, #0d1613 100%);
+      border-radius: 15px;
+      padding: 2rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    .category-card:hover {
+      border-color: #4CAF50;
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(76, 175, 80, 0.3);
+    }
+
+    .category-icon {
+      width: 80px;
+      height: 80px;
+      background: rgba(76, 175, 80, 0.2);
+      border-radius: 50%;
+      margin: 0 auto 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+    }
+
+    .category-name {
+      font-size: 1.2rem;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+
+    .category-count {
+      color: #b0b0b0;
+      font-size: 0.9rem;
+    }
+
+    /* Products */
+    .products {
+      padding: 4rem 3%;
+      background: #0a0e0d;
+    }
+
+    .product-filters {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      padding: 0.75rem 1.5rem;
+      background: rgba(76, 175, 80, 0.1);
+      border: 1px solid rgba(76, 175, 80, 0.3);
+      color: #4CAF50;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: #4CAF50;
+      color: white;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .product-card {
+      background: linear-gradient(135deg, #1a2e2a 0%, #0d1613 100%);
+      border-radius: 15px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+      cursor: pointer;
+    }
+
+    .product-card:hover {
+      border-color: #4CAF50;
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(76, 175, 80, 0.3);
+    }
+
+    .product-image {
+      width: 100%;
+      height: 300px;
+      background: #2d4a3e;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .product-card:hover .product-image img {
+      transform: scale(1.1);
+    }
+
+    .product-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #4CAF50;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .product-info {
+      padding: 1.5rem;
+    }
+
+    .product-name {
+      font-size: 1.1rem;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+
+    .product-price {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .price-current {
+      font-size: 1.5rem;
+      color: #4CAF50;
+      font-weight: 700;
+    }
+
+    .price-old {
+      font-size: 1rem;
+      color: #808080;
+      text-decoration: line-through;
+    }
+
+    .product-rating {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .stars {
+      color: #ffc107;
+    }
+
+    .add-to-cart {
+      width: 100%;
+      padding: 0.75rem;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .add-to-cart:hover {
+      background: #45a049;
+      transform: translateY(-2px);
+    }
+
+    /* Cart Sidebar */
+    .cart-sidebar {
+      position: fixed;
+      right: -400px;
+      top: 0;
+      width: 400px;
+      height: 100%;
+      background: #1a2e2a;
+      box-shadow: -5px 0 30px rgba(0, 0, 0, 0.5);
+      transition: right 0.3s ease;
+      z-index: 2000;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cart-sidebar.active {
+      right: 0;
+    }
+
+    .cart-header {
+      padding: 1.5rem;
+      border-bottom: 1px solid rgba(76, 175, 80, 0.2);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .cart-header h2 {
+      color: #4CAF50;
+    }
+
+    .close-cart {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .cart-items {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1.5rem;
+    }
+
+    .cart-item {
+      display: flex;
+      gap: 1rem;
+      padding: 1rem;
+      background: rgba(76, 175, 80, 0.1);
+      border-radius: 10px;
+      margin-bottom: 1rem;
+    }
+
+    .cart-item-image {
+      width: 80px;
+      height: 80px;
+      background: #2d4a3e;
+      border-radius: 8px;
+    }
+
+    .cart-item-info {
+      flex: 1;
+    }
+
+    .cart-item-name {
+      color: #fff;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .cart-item-price {
+      color: #4CAF50;
+      font-weight: 700;
+    }
+
+    .cart-footer {
+      padding: 1.5rem;
+      border-top: 1px solid rgba(76, 175, 80, 0.2);
+    }
+
+    .cart-total {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .cart-total-label {
+      color: #b0b0b0;
+    }
+
+    .cart-total-amount {
+      color: #4CAF50;
+      font-weight: 700;
+      font-size: 1.5rem;
+    }
+
+    .checkout-btn {
+      width: 100%;
+      padding: 1rem;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .checkout-btn:hover {
+      background: #45a049;
+      transform: translateY(-2px);
+    }
+
+    /* Footer */
+    .footer {
+      background: #0d1613;
+      padding: 3rem 3%;
+      border-top: 1px solid rgba(76, 175, 80, 0.2);
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 3rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-section h3 {
+      color: #4CAF50;
+      margin-bottom: 1rem;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-links a {
+      color: #b0b0b0;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: #4CAF50;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(76, 175, 80, 0.2);
+      color: #808080;
+    }
+
+    /* Responsive */
+    @media (max-width: 968px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .nav-menu {
+        display: none;
+      }
+
+      .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      }
+
+      .cart-sidebar {
+        width: 100%;
+        right: -100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .category-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar">
+  <div class="logo">fashuse</div>
+  <ul class="nav-menu">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#shop">Shop</a></li>
+    <li><a href="#categories">Categories</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-icons">
+    <div class="nav-icon">🔍</div>
+    <div class="nav-icon">👤</div>
+    <div class="nav-icon" onclick="toggleCart()">
+      🛒
+      <span class="cart-badge">3</span>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="hero-badge">EXISTING MEMBER</div>
+    <h1>Welcome to<br>Fashion Paradise</h1>
+    <p>Discover the latest trends and elevate your style with our exclusive collection</p>
+    <div class="hero-buttons">
+      <button class="btn btn-primary">Continue Shopping</button>
+      <button class="btn btn-secondary">View Collection</button>
+    </div>
+  </div>
+  <div class="hero-image">
+    <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=500&h=700&fit=crop" alt="Fashion">
+  </div>
+</section>
+
+<!-- Categories -->
+<section class="categories" id="categories">
+  <div class="section-header">
+    <h2 class="section-title">Shop by Category</h2>
+    <a href="#" class="view-all">View All →</a>
+  </div>
+  <div class="category-grid">
+    <div class="category-card">
+      <div class="category-icon">👗</div>
+      <div class="category-name">Clothing</div>
+      <div class="category-count">240 items</div>
+    </div>
+    <div class="category-card">
+      <div class="category-icon">👠</div>
+      <div class="category-name">Shoes</div>
+      <div class="category-count">180 items</div>
+    </div>
+    <div class="category-card">
+      <div class="category-icon">👜</div>
+      <div class="category-name">Handbags</div>
+      <div class="category-count">95 items</div>
+    </div>
+    <div class="category-card">
+      <div class="category-icon">⌚</div>
+      <div class="category-name">Watches</div>
+      <div class="category-count">120 items</div>
+    </div>
+  </div>
+</section>
+
+<!-- Products -->
+<section class="products" id="shop">
+  <div class="section-header">
+    <h2 class="section-title">Featured Products</h2>
+    <a href="#" class="view-all">View All →</a>
+  </div>
+  <div class="product-filters">
+    <button class="filter-btn active">All Categories</button>
+    <button class="filter-btn">Sneakers</button>
+    <button class="filter-btn">Sports Shoes</button>
+    <button class="filter-btn">Women Shoes</button>
+    <button class="filter-btn">Wristlets</button>
+    <button class="filter-btn">Handbags</button>
+    <button class="filter-btn">Watches</button>
+    <button class="filter-btn">Clothing</button>
+  </div>
+  <div class="product-grid">
+    <div class="product-card">
+      <div class="product-image">
+        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop" alt="Product">
+        <div class="product-badge">NEW</div>
+      </div>
+      <div class="product-info">
+        <div class="product-name">Green Sneakers</div>
+        <div class="product-price">
+          <span class="price-current">3000.00</span>
+          <span class="price-old">3500.00</span>
+        </div>
+        <div class="product-rating">
+          <span class="stars">★★★★★</span>
+          <span>(4.5)</span>
+        </div>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-image">
+        <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=400&h=400&fit=crop" alt="Product">
+        <div class="product-badge">SALE</div>
+      </div>
+      <div class="product-info">
+        <div class="product-name">Glitter Heals</div>
+        <div class="product-price">
+          <span class="price-current">5000.00</span>
+          <span class="price-old">6000.00</span>
+        </div>
+        <div class="product-rating">
+          <span class="stars">★★★★☆</span>
+          <span>(4.2)</span>
+        </div>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-image">
+        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop" alt="Product">
+        <div class="product-badge">HOT</div>
+      </div>
+      <div class="product-info">
+        <div class="product-name">Silver Watch</div>
+        <div class="product-price">
+          <span class="price-current">3600.00</span>
+          <span class="price-old">4200.00</span>
+        </div>
+        <div class="product-rating">
+          <span class="stars">★★★★★</span>
+          <span>(5.0)</span>
+        </div>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-image">
+        <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400&h=400&fit=crop" alt="Product">
+      </div>
+      <div class="product-info">
+        <div class="product-name">Navy Blue Watch</div>
+        <div class="product-price">
+          <span class="price-current">2100.00</span>
+          <span class="price-old">2500.00</span>
+        </div>
+        <div class="product-rating">
+          <span class="stars">★★★★☆</span>
+          <span>(4.3)</span>
+        </div>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-image">
+        <img src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400&h=400&fit=crop" alt="Product">
+        <div class="product-badge">NEW</div>
+      </div>
+      <div class="product-info">
+        <div class="product-name">Skinny Jean</div>
+        <div class="product-price">
+          <span class="price-current">2900.00</span>
+          <span class="price-old">3400.00</span>
+        </div>
+        <div class="product-rating">
+          <span class="stars">★★★★★</span>
+          <span>(4.8)</span>
+        </div>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-image">
+        <img src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=400&h=400&fit=crop" alt="Product">
+      </div>
+      <div class="product-info">
+        <div class="product-name">Warm Track Pant</div>
+        <div class="product-price">
+          <span class="price-current">1980.00</span>
+          <span class="price-old">2300.00</span>
+        </div>
+        <div class="product-rating">
+          <span class="stars">★★★★☆</span>
+          <span>(4.1)</span>
+        </div>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Cart Sidebar -->
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-header">
+    <h2>Shopping Cart</h2>
+    <button class="close-cart" onclick="toggleCart()">×</button>
+  </div>
+  <div class="cart-items">
+    <div class="cart-item">
+      <div class="cart-item-image"></div>
+      <div class="cart-item-info">
+        <div class="cart-item-name">Green Sneakers</div>
+        <div class="cart-item-price">3000.00 × 1</div>
+      </div>
+    </div>
+    <div class="cart-item">
+      <div class="cart-item-image"></div>
+      <div class="cart-item-info">
+        <div class="cart-item-name">Silver Watch</div>
+        <div class="cart-item-price">3600.00 × 1</div>
+      </div>
+    </div>
+    <div class="cart-item">
+      <div class="cart-item-image"></div>
+      <div class="cart-item-info">
+        <div class="cart-item-name">Glitter Heals</div>
+        <div class="cart-item-price">5000.00 × 1</div>
+      </div>
+    </div>
+  </div>
+  <div class="cart-footer">
+    <div class="cart-total">
+      <span class="cart-total-label">Total:</span>
+      <span class="cart-total-amount">11,600.00</span>
+    </div>
+    <button class="checkout-btn">Proceed to Checkout</button>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-section">
+      <h3>About Fashuse</h3>
+      <p style="color: #b0b0b0;">Your premier destination for fashion and lifestyle products. Quality and style combined.</p>
+    </div>
+    <div class="footer-section">
+      <h3>Quick Links</h3>
+      <ul class="footer-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Shop</a></li>
+        <li><a href="#">Categories</a></li>
+        <li><a href="#">About Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>Customer Service</h3>
+      <ul class="footer-links">
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">Shipping Info</a></li>
+        <li><a href="#">Returns</a></li>
+        <li><a href="#">FAQs</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>Connect</h3>
+      <ul class="footer-links">
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Twitter</a></li>
+        <li><a href="#">Pinterest</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 Fashuse. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<script>
+  // Toggle cart sidebar
+  function toggleCart() {
+    const cartSidebar = document.getElementById('cartSidebar');
+    cartSidebar.classList.toggle('active');
+  }
+
+  // Filter button interactions
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+
+  // Add to cart animation
+  const addToCartBtns = document.querySelectorAll('.add-to-cart');
+  addToCartBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
